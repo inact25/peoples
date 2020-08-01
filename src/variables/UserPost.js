@@ -5,27 +5,25 @@ import commentLoading from "../assets/img/commentLoading.gif";
 import PostCard from "../components/cards/PostCard";
 import withReactContent from 'sweetalert2-react-content'
 import Swal from "sweetalert2";
+import {connect} from "react-redux";
 
 class UserPost extends Component {
     state = {
-        postData: [],
-        commentsData: [],
         id: this.props.urlID,
         isLoaded: false,
-        isCommentLoaded : false
+        isCommentLoaded: false
     }
     getPostCommentData = (id) => {
         this.commentPopUp()
         getPostComment(id)
             .then((commentsData) => {
+                this.props.PostComment(commentsData)
                 this.setState({
-                    isLoaded: true,
-                    isCommentLoaded :true,
-                    commentsData,
+                    isCommentLoaded: true,
                 });
                 this.commentPopUp()
                 this.setState({
-                    isCommentLoaded :false,
+                    isCommentLoaded: false,
                 });
             })
             .catch((e) => {
@@ -36,9 +34,9 @@ class UserPost extends Component {
     getUserPost = (id) => {
         getUserPost(id)
             .then((postData) => {
+                this.props.PostData(postData)
                 this.setState({
                     isLoaded: true,
-                    postData,
                 });
             })
             .catch((e) => {
@@ -51,7 +49,7 @@ class UserPost extends Component {
         MySwal.fire(
             <div>
                 {this.state.isCommentLoaded ?
-                    this.state.commentsData.map(comment =>
+                    this.props.commentData.map(comment =>
                         <div className="card customCommentCard">
                             <div className="card-body">
                                 <div className="row">
@@ -99,7 +97,7 @@ class UserPost extends Component {
                         <div className="col-8">
                             <div className="card-columns customPostCardColumn">
                                 {
-                                    this.state.postData.map(post =>
+                                    this.props.postData.map(post =>
                                         <PostCard
                                             dataPopup={this.getPostCommentData}
                                             dataPostID={post.id}
@@ -121,4 +119,28 @@ class UserPost extends Component {
     }
 }
 
-export default UserPost;
+
+const mapStateToProps = (state) => {
+    return {
+        postData: state.fetchReducer.FetchAction.fetchData,
+        commentData: state.fetchReducer.FetchAction.fetchComment
+
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        PostData: (data) =>
+            dispatch({
+                type: 'GET',
+                JsonData: data
+            }),
+        PostComment: (data) =>
+            dispatch({
+                type: 'GETCOMMENT',
+                JsonData: data
+            })
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserPost);

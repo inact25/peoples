@@ -3,20 +3,20 @@ import Card from "../components/cards/Card";
 import {getUsers} from "../apis/dataApi";
 import animLoading from "../assets/img/animLoading.gif"
 import Swal from "sweetalert2";
+import {connect} from "react-redux";
 
 class UsersList extends Component {
 
     state = {
-        usersData: [],
         isLoaded: false
     }
 
     getUsersData = () => {
         getUsers()
             .then((usersData) => {
+                this.props.UserData(usersData)
                 this.setState({
                     isLoaded: true,
-                    usersData,
                 });
             })
             .catch((e) => {
@@ -32,7 +32,7 @@ class UsersList extends Component {
         return (
             <div className="row justify-content-md-center">
                 {this.state.isLoaded ?
-                    this.state.usersData.map(user =>
+                    this.props.usersData.map(user =>
                         <Card
                             dataId={user.id}
                             dataImg={user.picture}
@@ -47,4 +47,23 @@ class UsersList extends Component {
     }
 }
 
-export default UsersList;
+
+const mapStateToProps = (state) => {
+    return{
+       usersData: state.fetchReducer.FetchAction.fetchData
+
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        UserData : (data) => {
+            dispatch({
+                type: 'GET',
+                JsonData: data
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(UsersList);
