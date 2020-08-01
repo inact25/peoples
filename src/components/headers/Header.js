@@ -14,7 +14,8 @@ class Header extends Component {
                     <div className='col-8'>
                         <input name='inputVal' placeholder='Looking for someone...?' type="text"
                                className="form-control dashboardCustomInput" onChange={inputHandler}
-                               value={inputValue}/>
+                               value={inputValue}
+                        />
                     </div>
                     <div className='col'>
                         <button onClick={() => searchButton(inputValue)} className="btn btn-block dashboardCustomBtn">
