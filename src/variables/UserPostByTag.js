@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import commentLoading from "../assets/img/commentLoading.gif";
 import withReactContent from 'sweetalert2-react-content'
 import {connect} from "react-redux";
+import {Link} from 'react-router-dom'
 
 class UserPostByTag extends Component {
     state = {
@@ -56,20 +57,22 @@ class UserPostByTag extends Component {
                             <div className="card-body">
                                 <div className="row">
                                     <div className="col-3" style={{textAlign: 'left !important'}}>
-                                        <img style={{
+                                        <a href={`/user/${comment.owner.id}`}><img style={{
                                             width: '50px',
                                             height: '50px',
                                             borderRadius: '10em'
                                         }}
                                              src={comment.owner.picture} alt="profile"/>
+                                        </a>
                                     </div>
+
                                     <div className="col-9" style={{textAlign: 'left !important'}}>
-                                        <p style={{
+                                        <a href={`/user/${comment.owner.id}`}><p style={{
                                             fontSize: '14px',
                                             fontWeight: 'bolder',
                                             textAlign: 'left'
                                         }}
-                                        >{`${comment.owner.title}. ${comment.owner.firstName} ${comment.owner.lastName}`}</p>
+                                        >{`${comment.owner.title}. ${comment.owner.firstName} ${comment.owner.lastName}`}</p></a>
                                         <p style={{
                                             fontSize: '10px',
                                             marginTop: '-10px',

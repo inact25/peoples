@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const appID = 'TRwlDL5wNVLkuOBWi8zu'
+const appID = 'nkfaNP6B8N3bfLUvSYHy'
 
 export const getUsers = async () => {
     const res = await axios.get("https://dummyapi.io/data/api/user", {
