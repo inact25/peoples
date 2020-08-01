@@ -4,12 +4,12 @@ import UserCard from "../components/cards/UserCard";
 import MapCard from "../components/cards/mapCard";
 import animLoading from "../assets/img/animLoading.gif"
 import Swal from "sweetalert2";
+import {connect} from "react-redux";
 
 
 class User extends Component {
 
     state = {
-        userData: [],
         id: this.props.urlID,
         isLoaded: false
     }
@@ -17,9 +17,9 @@ class User extends Component {
     getUserbyIDData = (id) => {
         getUserById(id)
             .then((userData) => {
+                this.props.UserData(userData)
                 this.setState({
                     isLoaded: true,
-                    userData,
                 });
             })
             .catch((e) => {
@@ -32,7 +32,7 @@ class User extends Component {
     };
 
     render() {
-        const user = this.state.userData
+        const user = this.props.userData
         const location = user.location
         return (
             <div className='container'>
@@ -68,4 +68,23 @@ class User extends Component {
     }
 }
 
-export default User;
+
+const mapStateToProps = (state) => {
+    return{
+        userData: state.fetchReducer.FetchAction.fetchData
+
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        UserData : (data) => {
+            dispatch({
+                type: 'GET',
+                JsonData: data
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(User);
