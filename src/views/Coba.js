@@ -16,7 +16,6 @@ class Coba extends Component {
         this.commentPopUp()
         getPostComment(id)
             .then((commentsData) => {
-                console.log(commentsData)
                 this.setState({
                     isLoaded: true,
                     commentsData,
@@ -24,7 +23,6 @@ class Coba extends Component {
                 this.commentPopUp()
             })
             .catch((e) => {
-                console.log(e);
                 Swal.fire("Oops", "Connection Timeout !!!", "error")
             });
     };

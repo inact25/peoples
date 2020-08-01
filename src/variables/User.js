@@ -17,14 +17,12 @@ class User extends Component {
     getUserbyIDData = (id) => {
         getUserById(id)
             .then((userData) => {
-                console.log("fromapi", userData)
                 this.setState({
                     isLoaded: true,
                     userData,
                 });
             })
             .catch((e) => {
-                console.log(e);
                 Swal.fire("Oops", "Connection Timeout !!!", "error")
             });
     };

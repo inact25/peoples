@@ -14,14 +14,12 @@ class UsersList extends Component {
     getUsersData = () => {
         getUsers()
             .then((usersData) => {
-                console.log(usersData)
                 this.setState({
                     isLoaded: true,
                     usersData,
                 });
             })
             .catch((e) => {
-                console.log(e);
                 Swal.fire("Oops", "Connection Timeout !!!", "error")
             });
     };
