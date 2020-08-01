@@ -8,7 +8,6 @@ export const getUsers = async () => {
             "app-id": appID
         }
     })
-    console.log(res.data)
     return await res.data.data;
 };
 
@@ -18,7 +17,6 @@ export const getUserById = async (id) => {
             "app-id": appID
         }
     })
-    console.log('fetch : ', res)
     return await res.data;
 };
 
@@ -28,7 +26,6 @@ export const getUserPost = async (id) => {
             "app-id": appID
         }
     })
-    console.log('fetch : ', res)
     return await res.data.data;
 }
 

@@ -29,7 +29,6 @@ class UserPost extends Component {
                 });
             })
             .catch((e) => {
-                console.log(e);
                 Swal.fire("Oops", "Connection Timeout !!!", "error")
             });
     };
@@ -37,14 +36,12 @@ class UserPost extends Component {
     getUserPost = (id) => {
         getUserPost(id)
             .then((postData) => {
-                console.log(postData)
                 this.setState({
                     isLoaded: true,
                     postData,
                 });
             })
             .catch((e) => {
-                console.log(e);
                 Swal.fire("Oops", "Connection Timeout !!!", "error")
             });
     };
@@ -95,7 +92,6 @@ class UserPost extends Component {
     };
 
     render() {
-        console.log("comment : ",this.state.commentsData)
         return (
             <div>
                 {this.state.isLoaded ?

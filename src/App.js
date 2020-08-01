@@ -21,8 +21,7 @@ class App extends Component {
                             <Route path="/user/:userID/post" component={PostView}/>
                             <Route path="/user/:userID" component={UserView}/>
                             <Route exact path="/tag/:postTag/post" component={PostByTagView}/>
-                            <Route path='/timout' component={Timeout}/>
-                            <Route path='/coba' component={Coba}/>
+                            <Route path='/timeout' component={Timeout}/>
                             <Route component={Notfound}/>
                         </Switch>
                     </div>

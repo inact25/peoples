@@ -18,14 +18,12 @@ class UserPostByTag extends Component {
     getPostByTag = (tag) => {
         getPostbyTag(tag)
             .then((postData) => {
-                console.log(postData)
                 this.setState({
                     isLoaded: true,
                     postData,
                 });
             })
             .catch((e) => {
-                console.log(e);
                 Swal.fire("Oops", "Connection Timeout !!!", "error")
             });
     };
@@ -45,7 +43,6 @@ class UserPostByTag extends Component {
                 });
             })
             .catch((e) => {
-                console.log(e);
                 Swal.fire("Oops", "Connection Timeout !!!", "error")
             });
     }
