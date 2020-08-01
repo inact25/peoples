@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Swal from "sweetalert2";
 import withReactContent from 'sweetalert2-react-content'
 import {getPostComment} from "../apis/dataApi";
-import '../assets/css/Coba.css'
+import '../assets/css/Comment.css'
 
 class Coba extends Component {
 
