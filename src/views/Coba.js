@@ -47,30 +47,30 @@ class Coba extends Component {
                                         <p style={{
                                             fontSize: '14px',
                                             fontWeight: 'bolder',
-                                            textAlign:'left'}}
+                                            textAlign: 'left'
+                                        }}
                                         >{`${comment.owner.title}. ${comment.owner.firstName} ${comment.owner.lastName}`}</p>
                                         <p style={{
-                                            fontSize:'10px',
-                                            marginTop:'-10px',
-                                            textAlign:'left'
+                                            fontSize: '10px',
+                                            marginTop: '-10px',
+                                            textAlign: 'left'
                                         }}>{comment.message}</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="card-footer customCommentFooter">
-                                <p>{new Date().toLocaleDateString("en-US",comment.publishDate)}</p>
+                                <p>{new Date().toLocaleDateString("en-US", comment.publishDate)}</p>
                             </div>
                         </div>
                     ) : <p>Loading</p>}
             </div>
-
         )
     }
 
     render() {
         return (
             <div>
-                <button onClick={ ()=>this.getPostCommentData('SFAt3mJK0qu4QOd9LgSX') }>click</button>
+                <button onClick={() => this.getPostCommentData('SFAt3mJK0qu4QOd9LgSX')}>click</button>
             </div>)
 
     }

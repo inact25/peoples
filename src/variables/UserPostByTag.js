@@ -11,7 +11,7 @@ class UserPostByTag extends Component {
     state = {
         tag: this.props.urlTag,
         isLoaded: false,
-        isCommentLoaded : false
+        isCommentLoaded: false
     }
 
     getPostByTag = (tag) => {
@@ -34,11 +34,11 @@ class UserPostByTag extends Component {
                 this.props.PostComment(commentsData)
                 this.setState({
                     isLoaded: true,
-                    isCommentLoaded :true,
+                    isCommentLoaded: true,
                 });
                 this.commentPopUp()
                 this.setState({
-                    isCommentLoaded :false,
+                    isCommentLoaded: false,
                 });
             })
             .catch((e) => {
@@ -125,7 +125,7 @@ class UserPostByTag extends Component {
 
 
 const mapStateToProps = (state) => {
-    return{
+    return {
         postData: state.fetchReducer.FetchAction.fetchData,
         commentsData: state.fetchReducer.FetchAction.fetchComment
 
@@ -134,7 +134,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        PostData : (data) =>
+        PostData: (data) =>
             dispatch({
                 type: 'GET',
                 JsonData: data
@@ -148,4 +148,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(UserPostByTag);
+export default connect(mapStateToProps, mapDispatchToProps)(UserPostByTag);

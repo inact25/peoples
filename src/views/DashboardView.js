@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import UsersList from "../variables/UsersList";
 import '../assets/css/Dashboard.css'
-import Header from "../components/headers/Header";
 import Footer from "../components/footers/Footer";
 
 class DashboardView extends Component {
@@ -9,7 +8,6 @@ class DashboardView extends Component {
         return (
             <div>
                 <div className='container'>
-                    <Header/>
                     <UsersList/>
                 </div>
                 <Footer/>

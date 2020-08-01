@@ -70,7 +70,7 @@ class User extends Component {
 
 
 const mapStateToProps = (state) => {
-    return{
+    return {
         userData: state.fetchReducer.FetchAction.fetchData
 
     }
@@ -78,7 +78,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        UserData : (data) => {
+        UserData: (data) => {
             dispatch({
                 type: 'GET',
                 JsonData: data
@@ -87,4 +87,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(User);
+export default connect(mapStateToProps, mapDispatchToProps)(User);

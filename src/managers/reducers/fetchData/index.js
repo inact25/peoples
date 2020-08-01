@@ -5,5 +5,5 @@ const fetchReducer = combineReducers({
     FetchAction
 });
 
-export  default fetchReducer
+export default fetchReducer
 

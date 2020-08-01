@@ -41,16 +41,16 @@
     border-radius: 10em !important;
 }
 
-.customCommentIcon svg{
+.customCommentIcon svg {
     margin-bottom: -2px;
 }
 
-.customCommentIcon svg:hover{
+.customCommentIcon svg:hover {
     transform: scale(1.5);
     cursor: pointer;
 }
 
-.customLikeIcon svg:hover{
+.customLikeIcon svg:hover {
     transform: scale(1.5);
     cursor: pointer;
 }

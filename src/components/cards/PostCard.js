@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom'
 
 class PostCard extends Component {
     render() {
-        const {dataPopup,dataPostID,dataPostOwnerId, dataPostImg, dataPostOwner, dataPostArticle, dataPostTag, dataPostLike, dataPostDate} = this.props
-        console.log("id :",dataPostID)
+        const {dataPopup, dataPostID, dataPostOwnerId, dataPostImg, dataPostOwner, dataPostArticle, dataPostTag, dataPostLike, dataPostDate} = this.props
+        console.log("id :", dataPostID)
         return (
             <div className="card customPostCard" style={{width: 18 + "rem"}}>
                 <img className="card-img-top customPostImgCard" src={dataPostImg} alt="Card image cap"/>
@@ -28,7 +28,9 @@ class PostCard extends Component {
                         <div className="col-2" style={{
                             textAlign: 'left',
                             marginBottom: '5%'
-                        }}><a onClick={()=>{dataPopup(dataPostID)}} className='customCommentIcon'><FcComments/></a>
+                        }}><a onClick={() => {
+                            dataPopup(dataPostID)
+                        }} className='customCommentIcon'><FcComments/></a>
 
                         </div>
                         <div className="col customLikeIcon" style={{textAlign: 'left'}}><FcLike/> {dataPostLike}</div>

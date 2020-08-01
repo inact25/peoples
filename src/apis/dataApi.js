@@ -39,8 +39,8 @@ export const getPostbyTag = async (tag) => {
 }
 
 export const getPostComment = async (postID) => {
-    const res = await axios.get(`https://dummyapi.io/data/api/post/${postID}/comment`,{
-        headers:{
+    const res = await axios.get(`https://dummyapi.io/data/api/post/${postID}/comment`, {
+        headers: {
             "app-id": appID
         }
     })

@@ -1,6 +1,6 @@
 const initialState = {
-    fetchData :[],
-    fetchComment:[]
+    fetchData: [],
+    fetchComment: []
 }
 
 const FetchAction = (state = initialState, action) => {
