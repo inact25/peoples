@@ -61,7 +61,7 @@ class UsersList extends Component {
     render() {
         return (
             <div><Header searchButton={this.onSearch} inputValue={this.state.inputVal}
-                         inputHandler={this.inputHandler}/>
+                         inputHandler={this.inputHandler} btnStatus={!this.state.isLoaded}/>
                 <div className="row justify-content-md-center">
 
                     {this.state.isLoaded ?

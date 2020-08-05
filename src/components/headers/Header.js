@@ -3,7 +3,7 @@ import {RiSearchEyeLine} from "react-icons/ri";
 
 class Header extends Component {
     render() {
-        const {inputHandler, inputValue, searchButton} = this.props
+        const {btnStatus,inputHandler, inputValue, searchButton} = this.props
         return (
             <div className='sticky-top' style={{background: '#EEF1FB'}}>
                 <h3 style={{
@@ -18,7 +18,7 @@ class Header extends Component {
                         />
                     </div>
                     <div className='col'>
-                        <button onClick={() => searchButton(inputValue)} className="btn btn-block dashboardCustomBtn">
+                        <button disabled={btnStatus} onClick={() => searchButton(inputValue)} className="btn btn-block dashboardCustomBtn">
                             <RiSearchEyeLine/></button>
                     </div>
                     <div className='col'/>
